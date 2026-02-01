@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SessionHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="app-info">
+                    <svg class="app-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <h1 class="app-name">SessionHub</h1>
+                </div>
+                <button class="close-btn" id="closeBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="divider"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Primary Action -->
+            <section class="primary-action">
+                <button class="save-btn" id="saveAllBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Save All Tabs
+                </button>
+                <p class="save-subtext">One click to save all open tabs</p>
+                <button class="save-selected-btn" id="saveSelectedBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11l3 3L22 4"></path>
+                        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                    </svg>
+                    Save Selected Tabs
+                </button>
+            </section>
+
+            <!-- Tab Selection Panel -->
+            <section class="tab-selection" id="tabSelection" style="display: none;">
+                <div class="selection-header">
+                    <h3>Select tabs to save</h3>
+                    <button class="cancel-selection-btn" id="cancelSelectionBtn">Cancel</button>
+                </div>
+                <div class="tab-list" id="tabList">
+                    <!-- Tabs will be dynamically added here -->
+                </div>
+                <button class="save-selected-confirm-btn" id="saveSelectedConfirmBtn">Save Selected</button>
+            </section>
+
+            <!-- Saved Sessions -->
+            <section class="saved-sessions">
+                <div class="sessions-header">
+                    <h2 class="sessions-title">Saved Sessions</h2>
+                    <button class="clear-all-btn" id="clearAllBtn">Clear All</button>
+                </div>
+                <div class="sessions-list" id="sessionsList">
+                    <!-- Sessions will be dynamically added here -->
+                </div>
+                <div class="empty-state" id="emptyState">
+                    <p>No saved sessions yet</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Rename Modal -->
+    <div class="modal" id="renameModal">
+        <div class="modal-content">
+            <h3>Rename Session</h3>
+            <input type="text" id="renameInput" class="rename-input" placeholder="Enter new name">
+            <div class="modal-actions">
+                <button class="cancel-btn" id="cancelRename">Cancel</button>
+                <button class="confirm-btn" id="confirmRename">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
